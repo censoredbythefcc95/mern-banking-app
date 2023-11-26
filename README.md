@@ -99,6 +99,27 @@ The Mock Banking App is a full-stack MERN (MongoDB, Express.js, React.js, Node.j
 
 The layout will be designed to be user-friendly and responsive for both desktop and mobile users. The color scheme and styling will align with a professional banking application, ensuring a clean and intuitive user experience.
 
+## Schemas for Mongoose
+
+Two schemas for users and transaction information. 
+
+const userSchema = new Schema({
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  // Other user-related fields can be added as needed
+});
+
+const transactionSchema = new Schema({
+  userId: { type: mongoose.Types.ObjectId, required: true },
+  type: { type: String, required: true },
+  amount: { type: Number, required: true },
+  timestamp: { type: Date, default: Date.now },
+  // Other transaction-related fields can be added as needed
+});
+
+
+
 ## Getting Started
 
 1. Clone the repository.
